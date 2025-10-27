@@ -1,6 +1,6 @@
 const header = {
   // all the properties are optional - can be left empty or deleted
-  homepage: '#',
+  homepage: 'https://aditya-datar.netlify.app/',
   title: 'Aditya Datar',
 }
 
@@ -83,7 +83,7 @@ const about = {
 
   description:
     '',
-  resume: 'https://example.com',
+  resume: 'https://drive.google.com/file/d/1VLA5EijyAFPDYNJxsaoPyt2dzKYFumCz/view?usp=sharing',
   social: {
     linkedin: 'https://www.linkedin.com/in/aditya-datar-5b6675204/',
     github: 'https://github.com/Aditya-Datar',
@@ -256,7 +256,7 @@ const infoCards = [
 ]
 
 const footer = {
-  name: 'Aditya Anand Datar',
+  name: 'Aditya Datar',
   tagline: "Building scalable solutions for tomorrow's challenges",
   quickLinks: [
     { name: 'Home', href: '#home' },

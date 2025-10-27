@@ -44,7 +44,7 @@ Portfolio/
 Clone the repository and install dependencies:
 
 ```bash
-git clone https://github.com/Aditya-Datar/portfolio
+git clone https://github.com/Aditya-Datar/Personal-Portfolio
 cd portfolio
 
 # Using yarn
@@ -106,7 +106,7 @@ This project is configured for deployment on **GitHub Pages**.
 1. Edit the homepage field in `package.json`:
 
    ```json
-   "homepage": "https://yourusername.github.io"
+   "homepage": "https://aditya-datar.netlify.app/"
    ```
 
 2. Build and deploy:
