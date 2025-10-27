@@ -1,0 +1,203 @@
+#about-me {
+  scroll-margin-top: 100px;
+}
+
+.about-me {
+  text-align: justify;
+  margin-top: 45vh;
+}
+
+.about-me__title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 40px;
+}
+
+.about-me__container {
+  display: flex;
+  align-items: flex-start;
+  gap: 40px;
+  margin-top: 50px;
+}
+
+/* Left Column - Image */
+.about-me__image-container {
+  flex-shrink: 0;
+}
+
+.about-me__picture {
+  position: relative;
+  width: 300px;
+  aspect-ratio: 4 / 5;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px var(--shadow, rgba(0, 0, 0, 0.2));
+  background: var(--clr-bg-alt, #0f0f0f);
+  margin-right: 50px;
+  z-index: 1;
+}
+
+/* --- ADDED: Light theme for picture --- */
+.light .about-me__picture {
+  box-shadow: var(--shadow);
+  background: var(--clr-bg-alt);
+}
+
+.about-me__picture::before {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  right: -3px;
+  bottom: -3px;
+  background: linear-gradient(135deg, #ff00ff, #ff8c00);
+  border-radius: inherit;
+  z-index: -1;
+}
+
+/* Right Column - Text */
+.about-me__text-container {
+  flex-grow: 1;
+}
+
+.about-me__role {
+  background: linear-gradient(135deg, #ff00ff, #ff8c00);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-size: 1.5rem;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.about-me__description {
+  line-height: 1.6;
+  font-size: 1rem;
+  color: #ccc;
+}
+
+/* --- ADDED: Light theme for description text --- */
+.light .about-me__description {
+  color: var(--clr-fg, #4b5563);
+}
+
+.about-me__skills-title {
+  margin-top: 30px;
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+}
+
+.about-me__skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.skill-pill {
+  border: 0.5px solid hsl(0deg 0% 100% / 37%);
+  color: #f1f1f1;
+  padding: 8px 16px;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  transition: transform 0.2s ease, background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* --- ADDED: Light theme for skill pills --- */
+.light .skill-pill {
+  border: 0.5px solid var(--clr-fg-alt, #333333);
+  color: var(--clr-fg, #4b5563);
+}
+
+.skill-pill:hover {
+  background: linear-gradient(135deg, #c300ff, #ff007a);
+  color: #fff;
+  transform: translateY(-3px);
+  box-shadow: 0 0 15px rgba(205, 95, 248, 0.4);
+  color: #fff;
+  cursor: pointer;
+  border-color: transparent;
+}
+
+/* --- ADDED: Light theme for skill pill hover --- */
+.light .skill-pill:hover {
+  color: #fff;
+  /* White text looks good on the light theme's red accent */
+  box-shadow: 0 0 15px rgba(226, 82, 74, 0.4);
+}
+
+
+/* --- Responsive Styles for About Me Section --- */
+
+/* For Tablets and smaller laptops (e.g., <= 768px) */
+@media (max-width: 768px) {
+  .about-me__container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .about-me {
+    /* Reduce the large top margin on smaller screens */
+    margin-top: -7em;
+  }
+
+  .about-me__container {
+    /* Your existing stacking rules */
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .about-me__picture {
+    /* Remove side margin and add bottom margin for stacked layout */
+    margin-right: 0;
+    margin-bottom: 30px;
+  }
+
+  .about-me__skills {
+    /* Center the skill pills when they wrap */
+    justify-content: center;
+  }
+
+  /* Scale down typography */
+  .about-me__title {
+    font-size: 1.8rem;
+  }
+}
+
+
+/* For Mobile Devices (e.g., <= 600px) */
+@media (max-width: 600px) {
+  .about-me {
+    /* Further reduce top margin for mobile */
+    margin-top: 6em;
+  }
+
+  .about-me__picture {
+    /* Make the picture a bit smaller on phones */
+    width: 250px;
+  }
+
+  /* Further scale down typography */
+  .about-me__title {
+    font-size: 1.6rem;
+  }
+
+  .about-me__role {
+    font-size: 1.3rem;
+  }
+
+  .about-me__description {
+    font-size: 0.95rem;
+    text-align: justify;
+    margin-top: 20px;
+  }
+
+  .about-me__skills-title {
+    font-size: 1.1rem;
+  }
+
+  #about-me{
+    scroll-margin-top: 150px;
+  }
+}

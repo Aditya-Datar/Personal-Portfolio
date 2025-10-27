@@ -1,0 +1,549 @@
+.app {
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.6;
+  color: var(--clr-fg);
+  background: var(--clr-bg);
+  min-height: 100vh;
+  transition: background 0.4s ease, color 0.3s ease;
+}
+
+
+
+/* 🌙 DARK MODE – Modern Glow Look */
+.dark {
+  --clr-bg: #000;
+  --clr-bg-alt: #0f0f0f;
+  --clr-fg: #e8e8e8;
+  --clr-fg-alt: #ffffff;
+  --clr-primary: rgb(205, 95, 248);
+  --clr-primary-alt: rgb(255, 119, 187);
+  --shadow: 0 0 40px rgba(205, 95, 248, 0.3);
+}
+
+/* ☀️ LIGHT MODE – Pastel Gradient */
+.light {
+  --clr-bg: linear-gradient(119deg, #ff14931c 0%,
+      /* Bright Yellow */
+      #20b2aa2e 50%,
+      /* Coral / Electric Orange */
+      #ffb75f52 100%);
+  --clr-bg-alt: #ffffff;
+  --clr-fg: #434343;
+  --clr-fg-alt: #333333;
+  --clr-primary: #e2524a;
+  --shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+main {
+  max-width: 1200px;
+  width: 90%;
+  margin: 0 auto;
+  padding: 2em 0;
+}
+
+.section {
+  margin-top: 6em;
+}
+
+.section__title {
+  text-align: center;
+  margin-bottom: 1em;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 1.8rem;
+  color: white;
+  letter-spacing: 0.08em;
+  margin-top: 10em;
+}
+
+/* --- ADDED: Light theme style for Section Title --- */
+.light .section__title {
+  color: var(--clr-fg-alt);
+}
+
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  position: relative;
+  z-index: 2;
+}
+
+/* LINKS */
+.link {
+  /* 1. Apply the gradient to the background */
+  background: linear-gradient(135deg, #ff00ff, #ff8c00);
+
+  /* 2. Clip the background to the text's shape */
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  /* 3. Make the text color transparent to reveal the gradient */
+  color: transparent;
+
+  /* Your other styles */
+  position: relative;
+  font-weight: 500;
+
+  /* 4. Add a transition for a smooth hover effect (on filter, not color) */
+  transition: filter 0.3s ease-in-out;
+}
+
+.link:hover {
+  cursor: pointer;
+  background: linear-gradient(135deg, #c300ff, #ff8c00);
+  color: transparent;
+  mask-composite: exclude;
+  background-clip: text;
+
+
+}
+
+.link::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 0%;
+  background: linear-gradient(90deg, var(--clr-primary), var(--clr-primary-alt));
+  transition: width 0.3s ease-in-out;
+}
+
+
+.link--nav {
+  color: var(--clr-fg);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+/* --- Base Button Style --- */
+.btn {
+  /* Core layout and typography */
+  display: inline-block;
+  cursor: pointer;
+  padding: 0.9em 1.6em;
+  font-weight: 600;
+  font-size: 1rem;
+  text-transform: uppercase;
+  text-decoration: none;
+
+  /* Positioning and stacking for the glow effect */
+  position: relative;
+  z-index: 1;
+
+  /* Smooth transitions for hover effects */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* --- The Modern Outline Button --- */
+.btn--outline {
+  /* "Glassmorphism" background */
+  background: rgba(30, 30, 30, 0.5);
+  /* Semi-transparent dark background */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  /* Text color and subtle shadow */
+  color: white;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+
+  /* Remove the default border property */
+  border: none;
+  border-radius: 12px;
+  overflow: hidden;
+  /* Hide the parts of the pseudo-element that go outside */
+}
+
+/* --- The Glowing Border Effect (using a pseudo-element) --- */
+.btn--outline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  /* Sizing and Shape */
+  border-radius: 12px;
+  padding: 2px;
+  /* Controls border thickness */
+
+  /* The Gradient */
+  background: linear-gradient(135deg, #c300ff, #ff8c00);
+
+  /* The Masking "Stencil" to create the border shape */
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+
+  /* The initial, subtle glow */
+  z-index: -1;
+  /* Place it behind the button's content */
+  transition: opacity 0.3s ease;
+}
+
+.light .btn--outline {
+  color: var(--clr-primary-alt);
+  border: 2px solid var(--clr-primary-alt);
+  background: transparent;
+  box-shadow: var(--shadow);
+}
+
+.btn--outline:hover {
+  background: linear-gradient(135deg, #c300ff, #ff007a);
+  color: #fff;
+  transform: translateY(-3px);
+  box-shadow: 0 0 15px rgba(205, 95, 248, 0.4);
+}
+
+.btn--plain {
+  background: linear-gradient(135deg, var(--clr-primary), var(--clr-primary-alt));
+  color: #fff;
+  font-weight: 700;
+  box-shadow: 0 6px 20px rgba(205, 95, 248, 0.3);
+}
+
+.btn--plain:hover {
+  transform: translateY(-4px);
+  background: linear-gradient(135deg, var(--clr-primary-alt), var(--clr-primary));
+  box-shadow: 0 6px 30px rgba(205, 95, 248, 0.5);
+}
+
+/* .btn--icon {
+  padding: 0.5em;
+  border-radius: 50%;
+  transition: transform 0.2s ease, background 0.3s ease;
+}
+
+.btn--icon:hover {
+  background: rgba(205, 95, 248, 0.1);
+  transform: translateY(-3px) scale(1.1);
+} */
+
+/* First, add a transition to the SVG itself so the glow fades in smoothly */
+.btn--icon svg {
+  transition: filter 0.3s ease, color 0.3s ease;
+  color: white; /* Example default color */
+}
+
+/* Now, define the hover effect for the button and the SVG */
+.btn--icon:hover {
+  /* You can keep or remove the background change */
+  
+  /* Keep the transform for the button itself */
+  transform: translateY(-3px) scale(1.1);
+}
+
+.btn--icon:hover svg {
+  /* Change the icon's main color on hover */
+  color: #FFD700; /* Gold */
+
+  /* The Solar Flare: a multi-layered drop-shadow */
+  filter: 
+    drop-shadow(0 0 8px rgba(255, 223, 0, 0.9)) /* Bright inner yellow glow */
+    drop-shadow(0 0 15px rgba(255, 140, 0, 0.6)); /* Softer outer orange glow */
+}
+
+/* --- Lunar Glow Effect (for Light Theme / Moon Icon) --- */
+
+/* First, set the default state for the SVG in the light theme */
+.light .btn--icon svg {
+  transition: filter 0.3s ease, color 0.3s ease;
+  color: #555; /* A darker icon color for the light theme */
+}
+
+/* Now, define the hover effect for the button and the SVG */
+.light .btn--icon:hover {
+  /* A subtle blue background glow */
+  
+  /* Keep the transform for the button itself */
+  transform: translateY(-3px) scale(1.1);
+}
+
+.light .btn--icon:hover svg {
+  /* Change the icon's main color to a bright, soft blue on hover */
+  color: #4FD1C5;
+
+  /* The Lunar Glow: a multi-layered drop-shadow with cool colors */
+  filter: 
+    drop-shadow(0 0 8px rgba(79, 209, 197, 0.6)) /* Inner Teal glow */
+    drop-shadow(0 0 15px rgba(66, 153, 225, 0.4)); /* Outer cool Blue glow */
+}
+
+/* 🌌 BACKGROUND GLOW (Behind Content) */
+.bg-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  filter: blur(10px);
+  opacity: 0.6;
+  pointer-events: none;
+  width: min-content;
+  height: min-content;
+  z-index: 1;
+}
+
+.bg-glow__big {
+  width: min(45vw, 400px);
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  background: linear-gradient(229deg,
+      #df7afe 13%,
+      rgba(201, 110, 240, 0) 35%,
+      rgba(164, 92, 219, 0) 64%,
+      rgb(129, 74, 200) 88%);
+  will-change: transform;
+  animation: spin-ccw 10s linear infinite;
+}
+
+.light .bg-glow__big {
+  width: min(45vw, 400px);
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  background: linear-gradient(229deg,
+      #FF5E5E 13%,
+      /* Bright Red */
+      rgba(255, 140, 140, 0) 35%,
+      /* Transparent Red/Orange */
+      rgba(255, 178, 178, 0) 64%,
+      /* More Transparent Red/Orange */
+      #FF8C00 88%);
+  /* Deep Orange */
+  will-change: transform;
+  animation: spin-ccw 10s linear infinite;
+}
+
+.bg-glow__small {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(30vw, 300px);
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  background: linear-gradient(141deg,
+      #df7afe 13%,
+      rgba(201, 110, 240, 0) 35%,
+      rgba(164, 92, 219, 0) 64%,
+      rgb(129, 74, 200) 88%);
+  will-change: transform;
+  animation: spin-cw 10s linear infinite;
+  z-index: 0;
+}
+
+.light .bg-glow__small {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(30vw, 300px);
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  background: linear-gradient(141deg,
+      #00BFFF 13%,
+      /* Deep Sky Blue */
+      rgba(135, 206, 250, 0) 35%,
+      /* Transparent Light Blue */
+      rgba(173, 216, 230, 0) 64%,
+      /* More Transparent Light Blue */
+      #20B2AA 88%);
+  /* Light Sea Green / Teal */
+  will-change: transform;
+  animation: spin-cw 10s linear infinite;
+  z-index: 0;
+}
+
+/* 🔁 Animations */
+@keyframes spin-cw {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes spin-ccw {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+
+/* Responsive Layout */
+@media (max-width: 600px) {
+  .section {
+    margin-top: 4em;
+  }
+
+  .section__title {
+    font-size: 1.5rem;
+  }
+
+  .btn {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+
+/* --- Responsive Styles --- */
+
+/* For Tablets and smaller laptops (e.g., <= 992px) */
+@media (max-width: 992px) {
+  /* General Layout */
+  .section {
+    margin-top: 4em;
+  }
+
+  .section__title {
+    font-size: 1.6rem;
+    margin-top: 8em;
+  }
+
+  /* About Me Section */
+  .about-me__container {
+    /* Stack the image and text earlier for tablets */
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .about-me__picture {
+    width: 250px;
+    margin-right: 0;
+    margin-bottom: 30px;
+  }
+
+  /* Projects Carousel */
+  .slick-prev {
+    margin-left: -20px; /* Bring arrows closer to the slider */
+  }
+  
+  .slick-next {
+    margin-right: -20px;
+  }
+
+  /* Contact Section */
+  .contact__container {
+    flex-direction: column;
+  }
+}
+
+
+/* For Mobile Devices (e.g., <= 600px) */
+@media (max-width: 600px) {
+  /* General Layout */
+  .section {
+    margin-top: 4em;
+  }
+
+  .section__title {
+    font-size: 1.4rem;
+    margin-top: 8em;
+  }
+
+  /* Typography */
+  .about-me__role,
+  .footer__name {
+    font-size: 1.3rem;
+  }
+
+  .footer__heading {
+    font-size: 0.9rem;
+  }
+
+  /* Buttons */
+  .btn {
+    width: 100%;
+    text-align: center;
+    padding: 0.8em 1.2em;
+    font-size: 0.9rem;
+  }
+
+  .social-button,
+  .contact__form-btn {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+
+  /* About Me Section */
+  .about-me__picture {
+    width: 200px;
+  }
+
+  /* Projects Carousel */
+  .slick-prev,
+  .slick-next {
+    width: 40px;
+    height: 40px;
+  }
+
+  .slick-prev {
+    margin-left: -5px;
+  }
+
+  .slick-next {
+    margin-right: -5px;
+  }
+
+  .slick-prev::before,
+  .slick-next::before {
+    font-size: 20px;
+  }
+
+  .project {
+    margin: 10px; /* Reduce margin for project cards */
+    padding: 1.5em;
+  }
+
+  /* Footer */
+  .footer__top,
+  .footer__bottom {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  /* Background Glows */
+  .bg-glow__big {
+    width: 60vw;
+  }
+
+  .bg-glow__small {
+    width: 45vw;
+  }
+
+  .slick-prev,
+  .slick-next {
+    display: none !important;
+  }
+}
+
+/* @media (max-width: 1300px) and (max-height: 1200px) {
+  .bg-glow {
+    top: 30%;
+  }
+
+  .stars-container{
+    height: 50%;
+  }
+
+  .scroll-indicator{
+    bottom: inherit;
+    margin-top: 65px;
+  }
+} */

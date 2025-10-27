@@ -1,0 +1,158 @@
+/* The main container for all three cards */
+.hero-info-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  /* Space between the cards */
+}
+
+/* Styles for a single card */
+.info-card {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background-color: rgba(30, 30, 30, 0.7);
+  /* Dark, semi-transparent background */
+  padding: 12px 20px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  /* This creates the "glass" effect */
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.info-card:hover {
+  transform: translateY(-5px);
+}
+
+/* The emoji icon on the left */
+.info-icon {
+  font-size: 1.8rem;
+  /* Adjust size of the emoji */
+  background: transparent;
+}
+
+/* The container for the two lines of text */
+.info-content {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  background: transparent;
+}
+
+/* The small, grey label (e.g., "EDUCATION") */
+.info-label {
+  font-size: 0.7rem;
+  color: #aaa;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* The larger, white value (e.g., "USC Graduate Student") */
+.info-value {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #f1f1f1;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 600px) {
+  .hero-info-container {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 2560px) {
+  .hero-info-container {
+    margin-top: 60px;
+  }
+}
+
+@media (max-width: 1600px) {
+  .hero-info-container {
+    margin-top: 2px;
+  }
+}
+
+/* --- Responsive Styles for Hero Info Cards --- */
+@media (max-width: 992px) {
+  /* The small, grey label (e.g., "EDUCATION") */
+  .info-label {
+    font-size: 0.7rem;
+    color: #aaa;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  /* The larger, white value (e.g., "USC Graduate Student") */
+  .info-value {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #f1f1f1;
+  }
+}
+
+/* For Tablets (e.g., <= 768px) */
+@media (max-width: 768px) {
+  .hero-info-container {
+    flex-direction: row;
+    align-items: center;
+    margin-top: 0px;
+  }
+
+  .info-card {
+    /* Set a max-width so cards don't stretch too wide on tablets */
+    width: 100%;
+    max-width: 400px;
+  }
+
+  /* The small, grey label (e.g., "EDUCATION") */
+  .info-label {
+    font-size: 0.5rem;
+    color: #aaa;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  /* The larger, white value (e.g., "USC Graduate Student") */
+  .info-value {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #f1f1f1;
+  }
+}
+
+
+/* For Mobile Devices (e.g., <= 600px) */
+@media (max-width: 600px) {
+  .hero-info-container{
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .info-card {
+    /* Reduce padding and gap on small screens */
+    padding: 10px 10px;
+    gap: 12px;
+    width: 60%;
+
+  }
+
+  .info-icon {
+    /* Scale down the icon size */
+    font-size: 0.7rem;
+  }
+
+  .info-label {
+    /* The label is already small, keep it for readability */
+    font-size: 0.6rem;
+  }
+
+  .info-value {
+    /* Slightly reduce the main text size */
+    font-size: 0.8rem;
+  }
+}

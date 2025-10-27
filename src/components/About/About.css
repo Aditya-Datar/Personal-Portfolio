@@ -1,0 +1,541 @@
+.about {
+  flex-direction: column;
+  margin-top: 3em;
+}
+
+.about__name {
+  background: linear-gradient(90deg,
+      #ff00ff 0%,
+      #6cff8f 50%,
+      #ff8c00 100%);
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+  font-size: clamp(3rem, 7vw, 5rem);
+  transition: background-position 0.6s ease;
+  animation: neon-gradient 5s ease infinite alternate;
+}
+
+.light .about__name {
+  background: linear-gradient(90deg,
+      #FF1493 0%,
+      /* Bright Yellow */
+      #20B2AA 50%,
+      /* Coral / Electric Orange */
+      #FF8C00 100%);
+  /* Deep Pink */
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+  transition: background-position 0.6s ease;
+  animation: neon-gradient 5s ease infinite alternate;
+}
+
+
+@keyframes neon-gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+.about__role {
+  margin-top: 1.2em;
+  font-weight: 500;
+}
+
+.about__desc {
+  font-size: 1rem;
+}
+
+.about__desc,
+.about__contact {
+  margin-top: 2.4em;
+}
+
+.about .link--icon {
+  margin-right: 0.8em;
+}
+
+.about .btn--outline {
+  margin-right: 1em;
+}
+
+@media (max-width: 600px) {
+  .app .about {
+    align-items: flex-start;
+    margin-top: 2em;
+  }
+}
+
+.about__header {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  /* space between picture and text */
+  margin-bottom: 1.5rem;
+}
+
+.about__picture {
+  width: 180px;
+  height: 180px;
+  border-radius: 70%;
+  /* round profile */
+  object-fit: cover;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.about__intro {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  font-weight: 400;
+}
+
+/* This container will hold our star layers */
+.stars-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50vh;
+  overflow: hidden;
+  /* Hide stars that move off-screen */
+  z-index: 1;
+  /* Make sure it's behind your main content */
+}
+
+/* Base styles for each star layer */
+.stars {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+}
+
+/*
+  We create stars using a single box-shadow with many values.
+  Each value is a star: box-shadow: [x-offset] [y-offset] [color];
+  This is a pre-generated list for a random effect.
+*/
+
+/* This container will hold our star layers */
+.stars-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  /* Hide stars that move off-screen */
+  z-index: 1;
+  /* Make sure it's behind your main content */
+}
+
+/* Base styles for each star layer */
+.stars,
+.stars2,
+.stars3,
+.stars4 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+}
+
+/* Small stars - Slowest */
+.stars::after {
+  content: " ";
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: transparent;
+  /* Added more stars for density */
+  box-shadow:
+    10vw 23vh #FFF, 83vw 3vh #FFF, 32vw 27vh #FFF, 55vw 95vh #FFF,
+    78vw 63vh #FFF, 12vw 81vh #FFF, 91vw 42vh #FFF, 4vw 7vh #FFF,
+    62vw 18vh #FFF, 29vw 89vh #FFF, 74vw 74vh #FFF, 98vw 5vh #FFF;
+  /* Applying both move and twinkle animations */
+  animation: spin-ccw 10s linear infinite, twinkle 1s linear infinite;
+  border-radius: 100px;
+}
+
+/* Medium stars - Medium speed */
+.stars2::after {
+  content: " ";
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: transparent;
+  box-shadow:
+    5vw 83vh #FFF, 80vw 23vh #FFF, 22vw 47vh #FFF, 45vw 5vh #FFF,
+    7vw 33vh #FFF, 92vw 88vh #FFF, 51vw 62vh #FFF, 14vw 27vh #FFF,
+    66vw 78vh #FFF, 38vw 58vh #FFF, 88vw 48vh #FFF, 2vw 98vh #FFF;
+  animation: spin-cw 10s linear infinite, twinkle 4s linear infinite;
+  border-radius: 100px;
+}
+
+/* Big stars - Fastest */
+.stars3::after {
+  content: " ";
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  background: transparent;
+  box-shadow:
+    15vw 33vh #FFF, 8vw 53vh #FFF, 72vw 67vh #FFF, 95vw 15vh #FFF,
+    47vw 83vh #FFF, 32vw 98vh #FFF, 68vw 8vh #FFF, 99vw 30vh #FFF;
+  animation: spin-ccw 10s linear infinite, twinkle 5s linear infinite;
+  border-radius: 100px;
+}
+
+.stars4::after {
+  content: " ";
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  background: transparent;
+  box-shadow:
+    15vw 33vh #FFF, 8vw 53vh #FFF, 72vw 67vh #FFF, 95vw 15vh #FFF,
+    47vw 83vh #FFF, 32vw 98vh #FFF, 68vw 8vh #FFF, 99vw 30vh #FFF;
+  animation: spin-ccw 10s linear infinite, twinkle 3s linear infinite;
+  border-radius: 100px;
+}
+
+/* The twinkle animation - now reaches full brightness */
+@keyframes twinkle {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  /* Changed to 1 for max brightness */
+  100% {
+    opacity: 0;
+  }
+}
+
+/* --- Light Mode Colorful Stars --- */
+
+/* Set a light background for the container in light mode */
+.light .stars-container {
+  /* 1. New gradient */
+  background: linear-gradient(119deg, #ff14931c 0%,
+      /* Bright Yellow */
+      #20b2aa2e 50%,
+      /* Coral / Electric Orange */
+      #ffb75f52 100%);
+  /* 3. Apply the animation */
+  animation: gradient-rotate 15s ease infinite;
+  filter: blur(2);
+  /* 2. Make the background much larger than the element */
+  background-size: 100% 100%;
+}
+
+/* The animation keyframes */
+@keyframes gradient-rotate {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+
+/* Override the box-shadow with a colorful palette */
+.light .stars::after {
+  box-shadow:
+    10vw 23vh #fc3d3d, 83vw 3vh #ffc234, 32vw 27vh #05966f, 55vw 95vh #0d6785,
+    78vw 63vh #fc3d3d, 12vw 81vh #05966f, 91vw 42vh #ffc234, 4vw 7vh #0d6785,
+    62vw 18vh #fc3d3d, 29vw 89vh #ffc234, 74vw 74vh #05966f, 98vw 5vh #0d6785;
+}
+
+.light .stars2::after {
+  box-shadow:
+    5vw 83vh #05966f, 80vw 23vh #0d6785, 22vw 47vh #fc3d3d, 45vw 5vh #ffc234,
+    7vw 33vh #05966f, 92vw 88vh #0d6785, 51vw 62vh #fc3d3d, 14vw 27vh #ffc234,
+    66vw 78vh #05966f, 38vw 58vh #0d6785, 88vw 48vh #fc3d3d, 2vw 98vh #ffc234;
+}
+
+.light .stars3::after {
+  box-shadow:
+    15vw 33vh #ffc234, 8vw 53vh #05966f, 72vw 67vh #0d6785, 95vw 15vh #fc3d3d,
+    47vw 83vh #ffc234, 32vw 98vh #05966f, 68vw 8vh #0d6785, 99vw 30vh #fc3d3d;
+}
+
+.light .stars4::after {
+  box-shadow:
+    15vw 33vh #ffc234, 8vw 53vh #05966f, 72vw 67vh #0d6785, 95vw 15vh #fc3d3d,
+    47vw 83vh #ffc234, 32vw 98vh #05966f, 68vw 8vh #0d6785, 99vw 30vh #fc3d3d;
+}
+
+/* Main container for the scroll indicator */
+.scroll-indicator {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  opacity: 0.8;
+  cursor: pointer;
+  z-index: 1;
+  margin-top: 10px;
+}
+
+/* The outline of the mouse */
+.scroll-mouse {
+  width: 30px;
+  height: 50px;
+  border: 2px solid #ffffff;
+  border-radius: 60px;
+  position: relative;
+}
+
+/* The animated scroll wheel */
+.scroll-wheel {
+  width: 4px;
+  height: 10px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  /* The animation magic */
+  animation: scroll-down 2s ease-in-out infinite;
+}
+
+/* The "Scroll" text */
+.scroll-text {
+  color: #ffffff;
+  font-size: 0.8rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+/* The outline of the mouse */
+.light .scroll-mouse {
+  width: 30px;
+  height: 50px;
+  border: 2px solid #4b5563;
+  border-radius: 60px;
+  position: relative;
+}
+
+/* The animated scroll wheel */
+.light .scroll-wheel {
+  width: 4px;
+  height: 10px;
+  background-color: #4b5563;
+  border-radius: 8px;
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  /* The animation magic */
+  animation: scroll-down 2s ease-in-out infinite;
+}
+
+/* The "Scroll" text */
+.light .scroll-text {
+  color: #4b5563;
+  font-size: 0.8rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+/* The animation keyframes */
+@keyframes scroll-down {
+  0% {
+    /* Start position */
+    opacity: 1;
+    top: 10px;
+  }
+
+  50% {
+    /* Move down and fade out */
+    opacity: 0;
+    top: 25px;
+  }
+
+  100% {
+    /* Reset position, remain faded out */
+    opacity: 0;
+    top: 10px;
+  }
+}
+
+@media (max-width: 1600px) {
+  .about__contact {
+    margin-top: 1em;
+  }
+
+  .scroll-mouse {
+    width: 25px;
+    height: 40px;
+  }
+
+  .scroll-text {
+    color: #ffffff;
+    font-size: 0.6rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+
+  .scroll-wheel {
+    width: 3px;
+    height: 6px;
+  }
+
+  .about-me {
+    /* Reduce the large top margin on smaller screens */
+    margin-top: -4em;
+  }
+}
+
+@media (max-width: 992px) {
+  .about-me {
+    /* Reduce the large top margin on smaller screens */
+    margin-top: -2em;
+  }
+  .about{
+    margin-top: 0em;
+  }
+  .about__name{
+    font-size: 3.5rem;
+  }
+  .about__role{
+    margin-top: 1.1rem;
+  }
+  .about__desc, .about__contact{
+    margin-top: 2rem;
+  }
+
+  .about__contact{
+    margin-top: 1rem;
+  }
+  .about .btn--outline {
+    margin: 0 10px;
+    font-size: 0.9rem;
+    /* Remove margin between buttons when stacked */
+  }
+
+  .scroll-indicator{
+    bottom: 10px;
+    margin-top: 0px;
+  }
+}
+
+/* --- Responsive Styles for About/Hero Section --- */
+
+/* For Tablets (e.g., <= 768px) */
+@media (max-width: 768px) {
+  .scroll-mouse, .scroll-text{
+    display: none;
+  }
+  .about {
+    margin-top: 0;
+  }
+
+  /* Stack the profile picture on top of the intro text */
+  .about__header {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .about__picture {
+    width: 150px;
+    height: 150px;
+  }
+
+  /* Adjust spacing for contact buttons */
+  .about__contact {
+    margin-top: 1em;
+    display: flex;
+    flex-direction: row;
+    /* Stack buttons on smaller screens */
+    align-items: center;
+    gap: 1em;
+    width: 100%;
+    /* Constrain width of stacked buttons */
+    margin-left: auto;
+    margin-right: auto;
+    flex-wrap: wrap;
+  }
+
+  .about .btn--outline {
+    margin: 0 10px;
+    font-size: 0.9rem;
+    /* Remove margin between buttons when stacked */
+  }
+}
+
+
+/* For Mobile Devices (e.g., <= 600px) */
+@media (max-width: 600px) {
+  .about__name{
+    font-size: 2rem;
+  }
+  .app .about {
+    align-items: center;
+    /* Center the whole component */
+    margin-top: 0;
+    text-align: center;
+  }
+
+  .about__picture {
+    width: 120px;
+    height: 120px;
+  }
+
+  /* Scale down typography */
+  .about__role {
+    font-size: 1rem;
+    margin-top: 1em;
+  }
+
+  .about__desc {
+    font-size: 0.9rem;
+    max-width: 500px;
+    /* Improve readability of centered text */
+  }
+
+  .scroll-mouse, .scroll-text{
+    display: none;
+  }
+
+  .about__contact{
+    margin-top: 1.5em;
+  }
+
+  .stars-container{
+    height: 90%;
+  }
+}

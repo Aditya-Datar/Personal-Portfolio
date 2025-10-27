@@ -1,0 +1,77 @@
+.project {
+  padding: 2em;
+  margin: 20px 30px;
+  text-align: center;
+  background: #1a1a1a;
+  border-radius: 10%;
+  transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* --- ADDED: Light theme for project cards --- */
+.light .project {
+  background: var(--clr-bg-alt, #ffffff);
+  border: 1px solid grey;
+  box-shadow: var(--shadow, 0 4px 20px rgba(0, 0, 0, 0.05));
+}
+
+.project:hover {
+  transform: translateY(-7px);
+  border: 1px solid var(--clr-primary);
+  cursor: pointer;
+}
+
+.project__description {
+  margin-top: 1em;
+}
+
+.project__stack {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 1.2em 0;
+}
+
+.project__stack-item {
+  margin: 0.5em;
+  font-weight: 500;
+  font-size: 0.8rem;
+  color: var(--clr-fg-alt);
+}
+
+.project .link--icon {
+  margin-left: 0.5em;
+}
+
+/* --- Responsive Styles for Project Cards --- */
+
+/* For Tablets (e.g., <= 992px) */
+@media (max-width: 992px) {
+  .project {
+    /* Reduce side margin for a tighter fit in the carousel/grid */
+    margin: 20px 15px;
+  }
+}
+
+
+/* For Mobile Devices (e.g., <= 600px) */
+@media (max-width: 600px) {
+  .project {
+    /* Further reduce margin and padding on small screens */
+    margin: 10px;
+    padding: 1.5em;
+  }
+
+  .project__description {
+    font-size: 0.9rem; /* Slightly smaller description font */
+    margin-top: 0.8em;
+  }
+
+  .project__stack {
+    margin: 1em 0; /* Tighter spacing for the tech stack */
+  }
+
+  .project__stack-item {
+    font-size: 0.75rem; /* Slightly smaller stack item font */
+    margin: 0.3em;
+  }
+}

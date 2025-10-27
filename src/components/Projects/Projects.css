@@ -1,0 +1,248 @@
+#projects {
+  scroll-margin-top: 100px;
+  margin-top: -100px;
+}
+
+.projects__grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(18em, 1fr));
+  grid-gap: 2em;
+}
+
+.slick-slider {
+  margin: 0;
+}
+
+/* --- Style the Arrow Buttons --- */
+.slick-prev,
+.slick-next {
+  width: 50px;
+  height: 50px;
+  background-color: rgba(30, 30, 30, 0.8);
+  border-radius: 50%;
+  z-index: 10;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* --- ADDED: Light theme for arrows --- */
+.light .slick-prev,
+.light .slick-next {
+  background-color: rgba(255, 255, 255, 0.8);
+  box-shadow: var(--shadow);
+}
+
+.slick-dots {
+  z-index: 8;
+}
+
+.slick-dots li {
+  width: 35px;
+}
+
+.slick-prev:hover,
+.slick-next:hover {
+  cursor: pointer;
+  background: linear-gradient(135deg, #c300ff, #ff8c00);
+  color: transparent;
+  mask-composite: exclude;
+}
+
+.slick-prev {
+  margin-left: -40px;
+}
+
+.slick-next {
+  margin-right: -40px;
+}
+
+
+/* --- Style the Arrow Icons (the little '>' inside) --- */
+.slick-prev::before,
+.slick-next::before {
+  font-family: Arial, sans-serif;
+  font-size: 24px;
+  line-height: 1;
+  color: white;
+  opacity: 1;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* --- ADDED: Light theme for arrow icons --- */
+.light .slick-prev::before,
+.light .slick-next::before {
+  color: var(--clr-fg-alt, #333333);
+}
+
+/* 2. Hover state in light mode: a white icon to contrast with the gradient */
+.light .slick-prev:hover::before,
+.light .slick-next:hover::before {
+  color: white;
+}
+
+.slick-prev::before {
+  content: '\2039';
+  /* Left-pointing chevron */
+}
+
+.slick-next::before {
+  content: '\203A';
+  /* Right-pointing chevron */
+}
+
+.slick-dots li.slick-active button:before {
+  font-family: 'slick';
+  font-size: 6px;
+  line-height: 20px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: '';
+  text-align: center;
+  opacity: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  width: 40px !important;
+  height: 8px !important;
+  background: white;
+  color: white;
+  border-radius: 20px;
+  margin: 0 -15px;
+  transition: background-color 0.3s ease;
+}
+
+/* --- ADDED: Light theme for active dot --- */
+.light .slick-dots li.slick-active button:before {
+  background: var(--clr-primary, #e2524a);
+  color: var(--clr-primary, #e2524a);
+}
+
+
+.slick-dots button:before {
+  font-family: 'slick';
+  font-size: 6px;
+  line-height: 20px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: '' !important;
+  text-align: center;
+  opacity: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  width: 15px !important;
+  height: 8px !important;
+  background: #4b5563;
+  color: #4b5563;
+  border-radius: 20px;
+  opacity: 1 !important;
+  transition: background-color 0.3s ease;
+}
+
+/* --- ADDED: Light theme for inactive dots --- */
+.light .slick-dots button:before {
+  background: #d1d5db;
+  /* Light Grey */
+  color: #d1d5db;
+}
+
+/* --- Responsive Styles for Projects Carousel --- */
+@media (max-width: 1300px) {
+
+  .slick-next {
+    margin-right: -20px;
+  }
+
+  .slick-prev {
+    margin-left: -20px;
+  }
+}
+
+/* For Tablets and smaller laptops (e.g., <= 992px) */
+@media (max-width: 992px) {
+
+  main {
+    max-width: 1200px;
+    width: 90%;
+    margin: 0 auto;
+    padding: 2em 0;
+
+    /* --- ADD THIS LINE --- */
+    overflow-x: hidden;
+  }
+
+  /* Adjust Arrow Positioning */
+  .slick-prev {
+    margin-left: -20px;
+    /* Bring arrows closer to the slider */
+  }
+
+  .slick-next {
+    margin-right: -20px;
+  }
+}
+
+
+/* For Mobile Devices (e.g., <= 600px) */
+@media (max-width: 600px) {
+
+  /* Scale down Arrow Size */
+  .slick-prev,
+  .slick-next {
+    width: 40px;
+    height: 40px;
+  }
+
+  /* Further Adjust Arrow Positioning for small screens */
+  .slick-prev {
+    margin-left: -10px;
+  }
+
+  .slick-next {
+    margin-right: -10px;
+  }
+
+  /* Scale down Arrow Icon Size */
+  .slick-prev::before,
+  .slick-next::before {
+    font-size: 20px;
+  }
+
+  /* Adjust Dot Spacing */
+  .slick-dots li {
+    width: 25px;
+  }
+
+  .slick-dots li.slick-active button:before {
+    width: 30px !important;
+  }
+
+  .slick-dots button:before {
+    width: 10px !important;
+  }
+
+  #projects {
+    position: relative;
+    scroll-margin-top: 150px;
+    z-index: 5;
+  }
+}
+
+/* Initially, the section is invisible but still takes up space */
+.projects.is-waiting {
+  visibility: hidden;
+  opacity: 0;
+}
+
+/* Once ready, it becomes visible with a smooth fade-in */
+.projects.is-ready {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+}

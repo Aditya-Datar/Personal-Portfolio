@@ -1,0 +1,124 @@
+.header {
+  max-width: 90vw;
+  width: 95%;
+  margin: 0 auto;
+  justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em 1em; /* Adds some spacing from the edges */
+  width: 100%;
+  height: auto;
+  /* --- New styles for sticking --- */
+  position: sticky;
+  top: 0;
+  z-index: 10; /* Ensures the header stays on top of other content */
+  
+  /* Add a background color to prevent content from showing through */
+  background-color: var(--clr-bg); /* Change this to match your site's background */
+}
+
+.light header {
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  padding: 15px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 200%;
+}
+
+
+/* --- Responsive Styles for Header --- */
+
+/* For Tablets (e.g., <= 768px) */
+@media (max-width: 768px) {
+  .header {
+    /* Reduce side padding on tablets */
+    padding: 1em 1.5em;
+  }
+
+  /* Assuming your nav links have this class */
+  .nav__list-item {
+    font-size: 0.9rem;
+    margin: 0 0.5em; /* Reduce space between nav links */
+  }
+}
+
+
+/* For Mobile Devices (e.g., <= 600px) */
+@media (max-width: 600px) {
+  .header {
+    height: auto; /* Allow height to adjust to content */
+    min-height: 4em; /* Set a minimum height */
+    /* padding: 0.5em 1em; */
+    flex-wrap: wrap; /* Allow items to wrap if needed */
+  }
+
+  /* Hide the desktop navigation list */
+  .nav__list {
+    display: none;
+  }
+
+  /*
+  * Show the hamburger menu icon.
+  * You will need to add a button with this class in your HTML/JSX.
+  */
+  .nav__hamburger {
+    display: block; /* This makes it visible on mobile */
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0.5em;
+    z-index: 1001; /* Ensure it's on top of the mobile menu */
+  }
+
+  /* Style the bars of the hamburger icon */
+  .hamburger-bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: var(--clr-fg);
+  }
+
+  /*
+  * Styles for the mobile navigation menu that appears when you click the hamburger.
+  * It starts hidden (transform: translateX(100%)).
+  */
+  .nav__mobile-menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 60%;
+    max-width: 300px;
+    height: 100vh;
+    background-color: var(--clr-bg-alt);
+    box-shadow: -5px 0 20px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2em;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 1000;
+  }
+
+  /*
+  * This class would be toggled with JavaScript.
+  * When added, it makes the mobile menu slide into view.
+  */
+  .nav__mobile-menu.is-open {
+    transform: translateX(0);
+  }
+
+  /* Style the links inside the mobile menu */
+  .nav__mobile-menu .nav__list-item {
+    font-size: 1.2rem;
+  }
+
+  .header {
+    height: 6em;
+  }
+}
